@@ -1,45 +1,46 @@
-int getpivot(vector<int> arr , int n){
-    
+int getpivot(vector<int> arr , int t){
     int start = 0;
-    int end = n-1;
-    int mid = start + (end - start)/2;
-    while(start < end){
+    int end = t-1;
+    int mid = start + (end-start)/2;
+    while(start<end){
         if(arr[mid]>=arr[0]){
             start = mid + 1;
         }
         else{
             end = mid;
         }
-        mid = start + (end - start)/2;
+        mid = start + (end-start)/2;
     }
-    return start;
+    return mid;
 
 }
 
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
+        
+        int pivot = getpivot(nums ,nums.size());
         int start = 0;
-        int end = nums.size() - 1;
-        int a = getpivot(nums , nums.size());
-        if(nums[a] <= target && target <= nums[end]){
-            start = a;
-            end = end;
-        } else {
-            start = 0;
-            end = a-1;
+        int end = nums.size()-1;
+        if((target >= nums[pivot]) && (target <= nums[end])){
+            start = pivot;
         }
-        while (start <= end){
-            int mid = start + (end - start)/2;
-            if(nums[mid] == target){
+        else{
+            end = pivot - 1;
+        }
+        while(start <= end){
+            int mid = start + (end-start)/2;
+            if(target == nums[mid]){
                 return mid;
             }
-            else if(nums[mid] > target){
-                end = mid - 1;   
+            else if(target > nums[mid]){
+                start = mid+1;
             }
-            else if(nums[mid] < target){
-            start = mid + 1;}
+            else if(target < nums[mid]){
+                end = mid-1;
             }
+            
+        }
         return -1;
     }
 };
