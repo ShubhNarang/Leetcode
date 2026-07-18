@@ -1,16 +1,8 @@
 class Solution {
 public:
     int gcdOfOddEvenSums(int n) {
-        int sumodd = 0;
-        int sumeven = 0;
-        for(int i = 1 ; i < 2*n+1 ; i++){
-            if(i%2 == 0){
-                sumeven+=i;
-            }
-            else{
-                sumodd+=i;
-            }
-        }
+        int sumodd = n * n;
+        int sumeven = n * (n + 1);
         while(sumodd != 0){
             int rem = sumeven%sumodd;
             sumeven = sumodd;
