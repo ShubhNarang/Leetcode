@@ -15,9 +15,6 @@ public:
                 start = mid + 1;
             }
         }
-        if(start+1 < nums.size() && nums[start+1]<target){
-            start = start + 1;
-        }
         return start;
         
     }
