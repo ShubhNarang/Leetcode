@@ -6,9 +6,9 @@ public:
             mp[i]++;
         }
         int sum = 0;
-        for(int i:nums){
-            if(mp[i]<2){
-                sum = sum + i;
+        for(auto i:mp){
+            if(i.second == 1){
+                sum = sum + i.first;
             }
         }
         return sum;
