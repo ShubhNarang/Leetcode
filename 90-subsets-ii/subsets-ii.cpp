@@ -9,10 +9,8 @@ public:
         ans.push_back(nums[i]);
         allset(nums,ans, i+1 ,allsubset);
         ans.pop_back();
-        int a = i+1;
-        while(a<nums.size() && nums[i]==nums[a]){
+        while(i+1<nums.size() && nums[i]==nums[i+1]){
             i++;
-            a++;
         }
         allset(nums,ans, i+1 ,allsubset);
     }
