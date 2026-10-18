@@ -4,7 +4,6 @@ public:
         int count = 0;
         for(int i = 0 ; i < words.size() ; i++){
             int n = 0;
-            int x = 0;
             int temp = 0;
             string a = chars;
             for(int j = 0 ; j < words[i].size() ; j++){
@@ -22,13 +21,12 @@ public:
                 
             }
             if(temp == 1){
-                n = x;
                 temp = 0;
+                continue;
             }
             else{
-                x = n;
+                count = count+n;
             }
-            count = count+x;
         }
         return count;
         
